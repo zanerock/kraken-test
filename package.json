@@ -59,5 +59,8 @@
     "linting": {
       "ignores": [ "**/dist/**/*" ]
     }
+  },
+  "_comply": {
+    "orgKey": "@liquid-labs"
   }
 }
