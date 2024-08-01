@@ -10,6 +10,9 @@
       "import": "dist/site-outage-reporter.mjs"
     }
   },
+  "bin": {
+    "site-outage-reporter": "dist/site-outage-reporter-exec.js"
+  },
   "files": [
     "dist/",
     "README.md",
