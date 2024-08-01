@@ -1,9 +1,9 @@
 import { readFile } from 'node:fs/promises'
 import { resolve as resolvePath } from 'node:path'
 
-const getConfiguredAPIKey = async (configPath) => {
-  // resolve so we can provide an unambiguous file location in any error report, even if 'configPath' is relative
-  const apiKeyPath = resolvePath(configPath, 'api-key.txt')
+const getConfiguredAPIKey = async (configDir) => {
+  // resolve so we can provide an unambiguous file location in any error report, even if 'configDir' is relative
+  const apiKeyPath = resolvePath(configDir, 'api-key.txt')
   let apiKey
   try {
     apiKey = (await readFile(apiKeyPath, { encoding : 'utf8' })).trim()

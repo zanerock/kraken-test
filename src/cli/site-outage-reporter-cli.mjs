@@ -6,6 +6,7 @@ import { siteOutageReporter } from '../lib/site-outage-reporter'
 const siteOutageReporterCLI = async ({ argv = process.argv } = {}) => {
   try {
     const options = commandLineArgs([
+      { name: 'api-key' },
       { name : 'cutoff-time', type : DateTime },
       { name : 'site-id' }
     ], { argv, camelCase : true })
