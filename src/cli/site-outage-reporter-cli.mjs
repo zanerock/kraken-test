@@ -1,15 +1,13 @@
 import commandLineArgs from 'command-line-args'
 import { DateTime } from 'string-input'
 
+import { cliSpec } from './cli-spec'
 import { siteOutageReporter } from '../lib/site-outage-reporter'
 
 const siteOutageReporterCLI = async ({ argv = process.argv } = {}) => {
+  let options
   try {
-    const options = commandLineArgs([
-      { name: 'api-key' },
-      { name : 'cutoff-time', type : DateTime },
-      { name : 'site-id' }
-    ], { argv, camelCase : true })
+    options = commandLineArgs(cliSpec.arguments, { argv, camelCase : true })
 
     // set our defaults
     if (options.cutoffTime === undefined) {
@@ -23,6 +21,9 @@ const siteOutageReporterCLI = async ({ argv = process.argv } = {}) => {
 
     await siteOutageReporter(options)
   } catch (e) {
+    if (options.throwError === true) {
+      throw e
+    } // else
     process.stdout.write(`ERROR: ${e.message}\n`)
   }
 }

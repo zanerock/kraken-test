@@ -11,4 +11,5 @@ $(README_MD): $(README_MD_SRC)
 	  --name-format \
 	  --plugin dmd-readme-api \
 	  >> $@
-	# cat $(SRC)/docs/README.02.md >> $@
+	npx cld src/cli/cli-spec.mjs --section-depth 2 --title 'Command line reference' >> $@
+	cat $(SRC)/docs/README.02.md >> $@

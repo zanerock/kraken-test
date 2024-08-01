@@ -66,3 +66,34 @@ projects:
               Sets up the final basic targets (like 'build') based on the target
               vars (like 'BUILD_TARGETS').
         config: {}
+    github:
+      node-jest-cicd:
+        artifacts:
+          - builder: '@liquid-labs/sdlc-projects-workflow-github-node-jest-cicd'
+            version: 1.0.0-alpha.2
+            path: .github/workflows/unit-tests-node.yaml
+            purpose: Runs node unit test CI/CD using a GitHub Workflow.
+            config: {}
+  badges:
+    coverage:
+      dependencies: []
+      artifacts:
+        - builder: '@liquid-labs/sdlc-projects-badges-coverage'
+          version: 1.0.0-alpha.2
+          priority: 0
+          content: >-
+            [![coverage:
+            68%](./.readme-assets/coverage.svg)](https://github.com/zanerock/kraken-test/pulls?q=is%3Apr+is%3Aclosed)
+          path: /Users/zane/playground/kraken-test/.readme-assets/coverage.svg
+          purpose: Test coverage badge for README.md.
+    github-workflow:
+      dependencies: []
+      artifacts:
+        - builder: '@liquid-labs/sdlc-projects-badges-github-workflows'
+          version: 1.0.0-alpha.2
+          priority: '1'
+          content: >-
+            [![Unit
+            tests](https://github.com/zanerock/kraken-test/actions/workflows/unit-tests-node.yaml/badge.svg)](https://github.com/zanerock/kraken-test/actions/workflows/unit-tests-node.yaml)
+          purpose: Display status of 'Unit tests' GitHub Workflow.
+          config: {}

@@ -1,6 +1,13 @@
 # kraken-test
+[![coverage: 68%](./.readme-assets/coverage.svg)](https://github.com/zanerock/kraken-test/pulls?q=is%3Apr+is%3Aclosed) [![Unit tests](https://github.com/zanerock/kraken-test/actions/workflows/unit-tests-node.yaml/badge.svg)](https://github.com/zanerock/kraken-test/actions/workflows/unit-tests-node.yaml)
 
 This is a toy application developed for my Octopus Energy application.
+
+- [Install](#install)
+- [Usage](#usage)
+- [API reference](#api-reference)
+- [Command line reference](#command-line-reference)
+- [Developer notes](#developer-notes)
 
 ## Install
 
