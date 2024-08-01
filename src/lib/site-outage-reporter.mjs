@@ -1,5 +1,6 @@
 import { getConfiguredAPIKey } from './lib/get-configured-api-key'
 import { KrakenSystem } from './lib/kraken-system'
+import { mergeOutageData } from './lib/merge-outage-data'
 
 const siteOutageReporter = async function ({
   apiKey = this?.apiKey,
@@ -21,7 +22,11 @@ const siteOutageReporter = async function ({
   const outages = await krakenSystem.getOutages() // will raise an exception if there's a problem
   const siteInfo = await krakenSystem.getSiteInfo(siteId)
 
-  console.log(siteInfo)
+  const siteOutageData = mergeOutageData({ cutoffTime, outages, siteInfo })
+
+  process.stdout.write(`Found ${siteOutageData.length} applicable site records...\n`)
+
+  console.log(siteOutageData) // DEBUG
 }
 
 export { siteOutageReporter }
