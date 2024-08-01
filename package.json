@@ -1,0 +1,43 @@
+{
+  "name": "kraken-test",
+  "version": "1.0.0-alpha.1",
+  "description": "",
+  "main": "dist/site-outage-reporter.cjs",
+  "module": "dist/site-outage-reporter.mjs",
+  "exports": {
+    ".": {
+      "require": "dist/site-outage-reporter.cjs",
+      "import": "dist/site-outage-reporter.mjs"
+    }
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE.md"
+  ],
+  "scripts": {
+    "build": "make",
+    "lint": "make lint",
+    "lint:fix": "make lint-fix",
+    "test": "make test",
+    "prepack": "make build",
+    "preversion": "npm test && make lint",
+    "qa": "make qa"
+  },
+  "keywords": [],
+  "author": "Zane Rockenbaugh <zane@liquid-labs.com>",
+  "license": "UNLICENSED",
+  "repository": {
+    "url": "git+ssh://git@github.com/zanerock/kraken-test.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/zanerock/kraken-test/issues"
+  },
+  "homepage": "https://github.com/zanerock/kraken-test#readme",
+  "devDependencies": {
+    "@liquid-labs/sdlc-resource-babel-and-rollup": "^1.0.0-alpha.9",
+    "@liquid-labs/sdlc-resource-eslint": "^1.0.0-alpha.11",
+    "@liquid-labs/sdlc-resource-jest": "^1.0.0-alpha.7"
+  }
+}
