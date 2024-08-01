@@ -1,0 +1,5 @@
+/node_modules
+/test-staging
+/qa
+/api-key.txt
+/settings.yaml
