@@ -14,7 +14,7 @@ describe('siteOutageReporterCLI', () => {
     })
 
     test('default cutoffTime', () => expect(testOptions.cutoffTime).toEqual(new Date('2022-01-01T00:00:00.000Z')))
-    test('default siteID', () => expect(testOptions.siteID).toBe('norwich-pear-tree'))
+    test('default siteId', () => expect(testOptions.siteId).toBe('norwich-pear-tree'))
   })
 
   test.each([
@@ -28,11 +28,11 @@ describe('siteOutageReporterCLI', () => {
     expect(testOptions.cutoffTime).toEqual(expectedTime)
   })
 
-  test('sets siteID from argv', async () => {
-    const siteID = 'abc'
+  test('sets siteId from argv', async () => {
+    const siteId = 'abc'
     let testOptions
     siteOutageReporter.mockImplementation(async (options) => { testOptions = options })
-    await siteOutageReporterCLI({ argv : ['--site-id', siteID] })
-    expect(testOptions.siteID).toEqual(siteID)
+    await siteOutageReporterCLI({ argv : ['--site-id', siteId] })
+    expect(testOptions.siteId).toEqual(siteId)
   })
 })

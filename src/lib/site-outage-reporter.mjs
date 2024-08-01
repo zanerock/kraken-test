@@ -8,19 +8,20 @@ const siteOutageReporter = async function ({
   configPath = this?.configPath || process.cwd(),
   // if this were real, we would probably leave these undefined if not set
   cutoffTime = this?.cutoffTime || '2022-01-01T00:00:00.000Z',
-  siteID = this?.siteID || 'norwich-pear-tree'
+  siteId = this?.siteId || 'norwich-pear-tree'
 } = {}) {
   if (apiKey === undefined) {
     apiKey = await getConfiguredAPIKey(configPath) // handle error conditions internally
   }
 
-  process.stdout.write(`Attempting to report outages for ${siteID} at or before ${cutoffTime.toISOString()}...\n`)
+  process.stdout.write(`Attempting to report outages for ${siteId} at or before ${cutoffTime.toISOString()}...\n`)
 
   const krakenSystem = new KrakenSystem(apiKey)
 
   const outages = await krakenSystem.getOutages() // will raise an exception if there's a problem
+  const siteInfo = await krakenSystem.getSiteInfo(siteId)
 
-  console.log(outages)
+  console.log(siteInfo)
 }
 
 export { siteOutageReporter }

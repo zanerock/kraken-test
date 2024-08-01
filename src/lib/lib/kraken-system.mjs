@@ -12,6 +12,10 @@ const KrakenSystem = class {
     process.stdout.write(`Found ${outageData.length} outages...\n`)
     return outageData
   }
+
+  async getSiteInfo(siteId) {
+    return smartFetch({ apiKey: this.apiKey, url: baseURL + `/site-info/${siteId}` })
+  }
 }
 
 export { KrakenSystem }

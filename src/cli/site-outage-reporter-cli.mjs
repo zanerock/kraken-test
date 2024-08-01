@@ -14,8 +14,8 @@ const siteOutageReporterCLI = async ({ argv = process.argv } = {}) => {
     if (options.cutoffTime === undefined) {
       options.cutoffTime = DateTime('2022-01-01T00:00:00.000Z')
     }
-    if (options.siteID === undefined) {
-      options.siteID = 'norwich-pear-tree'
+    if (options.siteId === undefined) {
+      options.siteId = 'norwich-pear-tree'
     }
     // now, convert DateTime to regular Date
     options.cutoffTime = options.cutoffTime.getDate()
