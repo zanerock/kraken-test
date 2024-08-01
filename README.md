@@ -77,6 +77,7 @@ Creates and posts an enhanced outage report for a particular site.
 
 - In order to make things "real-ish", you con supply an API key as a CLI option (or pass it in if using the library), but it will also look for the a 'api-key.txt' file in the current working dir and read the API from there, as would be standard practice. (If this were real, I'd actually default the file location to `~/.config/site-outage-reporter` or something.)
 - Besides the key reading function, the other two interesting functions are the `mergeOutageData`, which combines the outage and site data for the site outage report, and `smartFetch` which surrounds the standard `fetch` with retry logic to handle 500 and other errors.
+- Speaking of the smart retry, I tried to identify the situations where a retry could help (e.g., 500, which are intermittent, or certain 4xx codes where a retry might help) vs those where the request itself is flawed and a retry won't help (e.g., 400, 403, etc.).
 - Since it's a CLI tool and as a user tools that just silently do stuff are spooky, I made it chatty so it tells you what it's doing as it goes along. If this were a real project, I would have used some kind of logger for the output and included a `--quiet` option.
 - I use a set of SDLC tools that I developed to setup standard infrastructure. I went ahead and use this for this project because, why not? Among other things:
   - This sets up the build (make files) and installs standard configurations I use for Babel+Rollup, Jest, and ESLint.

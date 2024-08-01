@@ -12,7 +12,7 @@ const smartFetch = async ({ apiKey, url, fetch = global.fetch, retryDelay = defa
   const fetchOptions = { headers : { 'x-api-key' : apiKey }, retryDelay }
   Object.assign(fetchOptions, options)
   fetchOptions.retryOn = (attempt, error, response) => { // first attempt is 0
-    // retry on any network error, or 4xx or 5xx status codes
+    // retry on any network error, or retry-able 400 or 5xx status codes
     const { status } = response
     if (error !== null || (status === 408 || status === 409 || status === 429 || status >= 500)) {
       if (attempt < retryCount) {
