@@ -41,10 +41,12 @@
   "devDependencies": {
     "@liquid-labs/sdlc-resource-babel-and-rollup": "^1.0.0-alpha.9",
     "@liquid-labs/sdlc-resource-eslint": "^1.0.0-alpha.11",
-    "@liquid-labs/sdlc-resource-jest": "^1.0.0-alpha.7"
+    "@liquid-labs/sdlc-resource-jest": "^1.0.0-alpha.7",
+    "stdout-stderr": "^0.1.13"
   },
   "dependencies": {
     "command-line-args": "^6.0.0",
+    "fetch-retry": "^6.0.0",
     "string-input": "^1.0.0-alpha.3"
   }
 }

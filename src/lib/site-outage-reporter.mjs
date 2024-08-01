@@ -1,4 +1,5 @@
 import { getConfiguredAPIKey } from './lib/get-configured-api-key'
+import { KrakenSystem } from './lib/kraken-system'
 
 const siteOutageReporter = async function ({
   apiKey = this?.apiKey,
@@ -13,7 +14,13 @@ const siteOutageReporter = async function ({
     apiKey = await getConfiguredAPIKey(configPath) // handle error conditions internally
   }
 
-  console.log(apiKey)
+  process.stdout.write(`Attempting to report outages for ${siteID} at or before ${cutoffTime.toISOString()}...\n`)
+
+  const krakenSystem = new KrakenSystem(apiKey)
+
+  const outages = await krakenSystem.getOutages() // will raise an exception if there's a problem
+
+  console.log(outages)
 }
 
 export { siteOutageReporter }
