@@ -3,20 +3,22 @@ import { DateTime } from 'string-input'
 
 import { siteOutageReporter } from '../lib/site-outage-reporter'
 
-const siteOutageReporterCLI = async () => {
+const siteOutageReporterCLI = async ({ argv = process.argv } = {}) => {
   try {
     const options = commandLineArgs([
       { name : 'cutoff-time', type : DateTime },
       { name : 'site-id' }
-    ], { camelCase : true })
+    ], { argv, camelCase : true })
 
     // set our defaults
     if (options.cutoffTime === undefined) {
-      options.cutoffTime = '2022-01-01T00:00:00.000Z'
+      options.cutoffTime = DateTime('2022-01-01T00:00:00.000Z')
     }
     if (options.siteID === undefined) {
       options.siteID = 'norwich-pear-tree'
     }
+    // now, convert DateTime to regular Date
+    options.cutoffTime = options.cutoffTime.getDate()
 
     await siteOutageReporter(options)
   } catch (e) {
