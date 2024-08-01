@@ -20,7 +20,7 @@ describe('siteOutageReporterCLI', () => {
   test.each([
     ['2022-01-02 12:30 Z', new Date('2022-01-02T12:30:00.000Z')],
     ['01-02-2022 12:30 Z', new Date('2022-01-02T12:30:00.000Z')],
-    ['2 Jan 2022 12:30:30.123 Z', new Date('2022-01-02T12:30:30.123Z')],
+    ['2 Jan 2022 12:30:30.123 Z', new Date('2022-01-02T12:30:30.123Z')]
   ])('accepts and parses cutoff time string %s', async (timeString, expectedTime) => {
     let testOptions
     siteOutageReporter.mockImplementation(async (options) => { testOptions = options })

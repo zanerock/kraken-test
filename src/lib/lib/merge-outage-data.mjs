@@ -1,5 +1,5 @@
 const mergeOutageData = ({ cutoffTime, outages, siteInfo }) => {
-  process.stdout.write(`Merging data...\n`)
+  process.stdout.write('Merging data...\n')
 
   // produce a map of the device IDs to names so we don't have to be searching the lists every time
   const deviceIDToNameMap = siteInfo.devices.reduce((map, { id, name }) => { map[id] = name; return map }, {})

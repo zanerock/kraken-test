@@ -26,7 +26,9 @@ const siteOutageReporter = async function ({
 
   process.stdout.write(`Found ${siteOutageData.length} applicable site records...\n`)
 
-  console.log(siteOutageData) // DEBUG
+  await krakenSystem.postSiteOutages(siteId, siteOutageData)
+
+  console.log('Success')
 }
 
 export { siteOutageReporter }

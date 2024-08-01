@@ -13,8 +13,13 @@ const KrakenSystem = class {
     return outageData
   }
 
-  async getSiteInfo(siteId) {
-    return smartFetch({ apiKey: this.apiKey, url: baseURL + `/site-info/${siteId}` })
+  async getSiteInfo (siteId) {
+    return smartFetch({ apiKey : this.apiKey, url : baseURL + `/site-info/${siteId}` })
+  }
+
+  async postSiteOutages (siteId, siteOutageData) {
+    const postOptions = { body : JSON.stringify(siteOutageData), method : 'POST' }
+    return smartFetch({ apiKey : this.apiKey, url : baseURL + '/site-outages/' + siteId, options : postOptions })
   }
 }
 
