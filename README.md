@@ -51,13 +51,13 @@ Creates and posts an enhanced outage report for a particular site.
 | Param | Type | Description |
 | --- | --- | --- |
 | options | `object` | The options. |
-| options.apiKey | `string` | The API key to use to contact the Kraken system. If no API key is given, the    function will search `configDir` for an `api-key.txt` file and treat the contents of that file as the API key. |
-| options.configDir | `string` | The directory where `api-key.txt` can be found, if needed. Defaults to    `process.cwd()`. |
+| options.apiKey | `string` | The API key to use to contact the Kraken system. If no API key is given, the   function will search `configDir` for an `api-key.txt` file and treat the contents of that file as the API key. |
+| options.configDir | `string` | The directory where `api-key.txt` can be found, if needed. Defaults to   `process.cwd()`. |
 | options.cutoffTime | `Date` | The earliest outage time to include in the site outage report. Defaults to   '2022-01-01T00:00:00.000Z'. |
 | options.siteId | `string` | The site to generate the site outage report for. Default to 'norwich-pear-tree'. |
 
 
-[**Source code**](./src/lib/site-outage-reporter.mjs#L17)
+[**Source code**](./src/lib/site-outage-reporter.mjs#L16)
 
 ## Command line reference
 

@@ -54,5 +54,10 @@
     "command-line-args": "^6.0.0",
     "fetch-retry": "^6.0.0",
     "string-input": "^1.0.0-alpha.3"
+  },
+  "_sdlc": {
+    "linting": {
+      "ignores": [ "**/dist/**/*" ]
+    }
   }
 }
